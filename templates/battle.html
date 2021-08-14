@@ -16,9 +16,13 @@
         <div id=distance class="distance">0 km</div>
         <div id="daytime" class="daytime"></div>
         <div id="obon" class="obon">
-            <img src="{{ obon.image.url }}" alt="おぼん">
+            <img src="" alt="おぼん">
         </div>
         <script src="{% static 'flying.js' %}"></script>
+        <script>
+            json = JSON.parse('{{ data_json|safe }}');
+            document.getElementById("obon").getElementsByTagName("img")[0].src = json.imageUrl;
+        </script>
     </body>
     
 </html>

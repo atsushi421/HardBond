@@ -3,6 +3,10 @@
     margin: 10px 0;
 }
 
+.center{
+  text-align: center;
+}
+
 .food-card {
     margin: 30px auto;
     width: 150px;
@@ -13,7 +17,6 @@
   .food-card-img {
     border-radius: 5px 5px 0 0;
     max-height: 120px;
-    height: auto;
   }
   .food-card-content {
     padding: 5px 5px 1px 5px;
