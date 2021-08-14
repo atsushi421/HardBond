@@ -37,7 +37,7 @@
 
 <div class="shop-container">
     <section class="food-card">
-        <img class="food-card-img" src="{% static 'apple.jpg' %}" alt="">
+        <img class="food-card-img" src="{% static 'takoyaki.png' %}" alt="">
         <div class="food-card-content">
           <h3 class="food-card-title">たこやき</h3>
           <p class="food-card-text">100円</p>
@@ -48,7 +48,7 @@
         </form>
     </section>
     <section class="food-card">
-        <img class="food-card-img" src="{% static 'apple.jpg' %}" alt="">
+        <img class="food-card-img" src="{% static 'ringoame.png' %}" alt="">
         <div class="food-card-content">
           <h3 class="food-card-title">りんご飴</h3>
           <p class="food-card-text">150円</p>
@@ -59,24 +59,26 @@
         </form>
     </section>
     <section class="food-card">
-        <img class="food-card-img" src="{% static 'apple.jpg' %}" alt="">
+        <img class="food-card-img" src="{% static 'yakisoba.png' %}" alt="">
         <div class="food-card-content">
-          <h3 class="food-card-title">りんご</h3>
-          <p class="food-card-text">300円</p>
+          <h3 class="food-card-title">やきそば</h3>
+          <p class="food-card-text">200円</p>
         </div>
-        <div class="button-content">
-            <button type="button" class="btn btn-primary rounded-pill purchase">購入</button>
-        </div>
+        <form action="{% url 'foodstore' %}" method="post">
+            {% csrf_token %}
+            <input type="submit" name="yakisoba" value="購入" class="btn btn-primary rounded-pill purchase">
+        </form>
     </section>
     <section class="food-card">
-        <img class="food-card-img" src="{% static 'apple.jpg' %}" alt="">
+        <img class="food-card-img" src="{% static 'tyokobanana.png' %}" alt="">
         <div class="food-card-content">
-          <h3 class="food-card-title">りんご</h3>
-          <p class="food-card-text">300円</p>
+          <h3 class="food-card-title">チョコバナナ</h3>
+          <p class="food-card-text">230円</p>
         </div>
-        <div class="button-content">
-            <button type="button" class="btn btn-primary rounded-pill purchase">購入</button>
-        </div>
+        <form action="{% url 'foodstore' %}" method="post">
+            {% csrf_token %}
+            <input type="submit" name="tyokobanana" value="購入" class="btn btn-primary rounded-pill purchase">
+        </form>
     </section>
     <section class="food-card">
         <img class="food-card-img" src="{% static 'apple.jpg' %}" alt="">

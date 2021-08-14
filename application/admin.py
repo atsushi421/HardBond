@@ -10,3 +10,7 @@ class CategoryAdmin(admin.ModelAdmin):
 @admin.register(models.Obon)
 class CategoryAdmin(admin.ModelAdmin):
     pass
+
+@admin.register(models.Result)
+class CategoryAdmin(admin.ModelAdmin):
+    pass

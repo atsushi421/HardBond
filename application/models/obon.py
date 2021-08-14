@@ -12,7 +12,7 @@ class Obon(models.Model):
     name = models.CharField(
         max_length=255,
         default='Bonta',
-        blank=True,
+        blank=False,
         null=False,
     )
     
