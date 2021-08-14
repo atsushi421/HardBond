@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'results.css' %}">
+{% endblock %}
+
+{% block main %}
+<div class="name-container">
+    <div class="results-container">
+        結果発表
+        <div class="results-container__side results-container__side--left"></div>    
+        <div class="results-container__triangle results-container__triangle--left"></div>
+        <div class="results-container__triangle results-container__triangle--right"></div>
+        <div class="results-container__side results-container__side--right"></div>
+    </div>
+    <table class="design08">
+        <tr>
+            <th>順位</th>
+            <th>名前</th>
+            <th>飛距離</th>
+         </tr>
+        <tr>
+            <td>1位</td>
+            <td>すが</td>
+            <td>500 km</td>
+        </tr>
+        <tr>
+            <td>2位</td>
+            <td>あそう</td>
+            <td>450 km</td>
+        </tr>
+        <tr>
+            <td>3位</td>
+            <td>はぎゅうだ</td>
+            <td>334 km</td>
+        </tr>
+        <tr>
+            <td>4位</td>
+            <td>こいけ</td>
+            <td>244 km</td>
+        </tr>
+        <tr>
+            <td>5位</td>
+            <td>きしだ</td>
+            <td>134 km</td>
+        </tr>
+        <tr>
+            <td>6位</td>
+            <td>あべ</td>
+            <td>34 km</td>
+        </tr>
+        <tr>
+            <td>7位</td>
+            <td>あべ</td>
+            <td>34 km</td>
+        </tr>
+        <tr>
+            <td>8位</td>
+            <td>あべ</td>
+            <td>34 km</td>
+        </tr>
+        <tr>
+            <td>9位</td>
+            <td>あべ</td>
+            <td>34 km</td>
+        </tr>
+        <tr>
+            <td>10位</td>
+            <td>あべ</td>
+            <td>34 km</td>
+        </tr>
+       </table>
+</div>
+{% endblock %}

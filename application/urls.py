@@ -1,3 +1,4 @@
+from application.views.results import ResultsView
 from django.contrib import admin
 from django.urls import path, include  # include は委譲
 from django.contrib.auth.decorators import login_required
@@ -16,6 +17,8 @@ urlpatterns = [
     path('activate/<uidb64>/<token>/', activate.ActivateView.as_view(), name='activate'),  # <>はビュー側でパラメータとして受け取れる
     path('battle/', BattleView.as_view(), name='battle'),
     path('create/', ObonCreate.as_view(), name='create'),
+    path('foodstore/', FoodStoreView.as_view(), name='foodstore'),
+    path('results/', ResultsView.as_view(), name='result'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

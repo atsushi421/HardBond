@@ -1,0 +1,78 @@
+body{
+    margin: 0;
+    overflow: hidden;
+}
+
+.sky{
+    background: url("sky.png");
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background-size: cover;
+}
+
+.distance{
+    position: absolute;
+    right: 100px;
+    top: 50px;
+    background-color: #ffc107;
+    color: white;
+    padding: 30px;
+    font-size: 25px;
+    border-radius: 2em;
+}
+
+.daytime{
+    background: url("daytime.png");
+    height: 360px;
+    width: 500%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.obon img{
+    width: 200px;
+    position: absolute;
+    bottom: 450px;
+    left: 120;
+}
+
+@keyframes moving {
+    100%{
+        transform: translate(-3000px);
+    }
+}
+
+@keyframes down {
+    100%{
+        transform: translateY(450px);
+    }
+    0%{
+        transform: translateY(0px);
+    }
+}
+
+@keyframes rotate {
+    100%{
+        transform: rotate(360deg);
+    }
+    0%{
+        transform: rotate(0deg);
+    }
+}
+
+.moving{
+    animation-fill-mode: forwards;
+    animation: moving 5s linear;
+}
+
+.down{
+    animation-fill-mode: forwards;
+    animation: down 5s linear;
+}
+
+.rotate{
+    animation-fill-mode: forwards;
+    animation: rotate 1s linear 5;
+}

@@ -1,44 +1,79 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'home.css' %}">
+{% endblock stylesheet %}
+
 {% block main %}
-<h2>会員ページ</h2>
-<p>{{ user }}さん、こんにちは！</p>  <!-- user はデフォルトで使用できる変数。アクセスしているユーザを返す -->
+<h2>{{ error }}</h2>
+{% if flag != 1 %}
+    <div class="name-container">
+        <dvi class="obon-name"><span class="name">{{ obon.name }}</span></dvi>
+        <div class="price-tag">
+            所持金：{{ obon.money }}円
+        </div>
+    </div>
 
-<div>
-    <hr>
-    <p><a href="{% url 'battle' %}">{{ battle }}</a></p>
-    <h2>現在のおぼん</h2>
-    <li><img src="{{ obon.image.url }}" width="100" height="100"/></li>
-    <li>name: {{ obon.name }}</li>
-    <li>money: {{ obon.money }} </li>
-    <li>material: {{ obon.material }} </li>
-    <li>size: {{ obon.size }} </li>
-    <li>wise: {{ obon.wise }} </li>
-    <li>weight: {{ obon.weight }} </li>
-    <li>motivation: {{ obon.motivation }} </li>
-    <p></p>
-    <form action="{% url 'index' %}" method="post">
-        {% csrf_token %}
-        <input type="submit" name="reset" value="リセット">
-    </form>
+    <div class="obon-img">
+        <div class="potential">
+            <div class="ability">
+                <ul>素材 : {{ obon.material }}</ul>
+            </div>
+            <div class="ability">
+                <ul>大きさ : {{ obon.size }}</ul>
+            </div>
+            <div class="ability">
+                <ul>賢さ :{{ obon.wise }}</ul>
+            </div>
+            <div class="ability">
+                <ul>重さ : {{ obon.weight }}</ul>
+            </div>
+            <div class="ability">
+                <ul>やる気 : {{ obon.motivation }}</ul>
+            </div>
+        </div>
+        <img src="{{ obon.image.url }}" alt="おぼんの画像">
+    </div>
+{% else %}
+<div class="name-container">
+    <dvi class="obon-name"><span class="name">{{ obon.name }}</span></dvi>
+    <div class="price-tag">
+        所持金：{{ obon.money }}円 <strong><font color="red">(- {{ money }})</font></strong>
+    </div>
 </div>
 
-<div>
-    <hr>
-    <h2>食べ物</h2>
-    <h3>{{ error }}</h3>
-    <p></p>
-    <form action="{% url 'index' %}" method="post">
-        {% csrf_token %}
-        <input type="submit" name="takoyaki" value="たこ焼き">
-        <input type="submit" name="ringoame" value="リンゴ飴">
-    </form>
+<div class="obon-img">
+    <div class="potential">
+        <div class="ability">
+            <ul>素材 : {{ obon.material }}</ul>
+        </div>
+        <div class="ability">
+            <ul>大きさ : {{ obon.size }} <strong><font color="blue">(+ {{ size }})</font></strong></ul>
+        </div>
+        <div class="ability">
+            <ul>賢さ :{{ obon.wise }} <strong><font color="blue">(+ {{ wise }})</font></strong></ul>
+        </div>
+        <div class="ability">
+            <ul>重さ : {{ obon.weight }} <strong><font color="blue">(+ {{ weight }})</font></strong></ul>
+        </div>
+        <div class="ability">
+            <ul>やる気 : {{ obon.motivation }} <strong><font color="blue">(+ {{ motivation }})</font></strong></ul>
+        </div>
+    </div>
+    <img src="{{ obon.image.url }}" alt="おぼんの画像">
+</div>
+{% endif %}
+
+<div class="three-dimensions-card goto-card">
+    <a href="{% url 'foodstore' %}" class="btn-circle-3d">食べ物屋台</a>
+    <a href="#" class="btn-circle-3d">ゲーム屋台</a>
+    <a href="{% url 'battle' %}" class="btn-circle-3d">{{ battle }}</a>
 </div>
 
-
-
-<!-- 下の URL 名は決められたものなので、間違えないようにする -->
-<hr>
-<p><a href="{% url 'logout' %}">ログアウト</a></p>
-<p><a href="{% url 'password_change' %}">パスワードの変更</a></p>
-<p><a href="{% url 'password_reset' %}">パスワードを忘れた場合</a></p>
+<script>
+    const data = JSON.parse('{{ data_json|safe }}');
+    console.log(data.error)
+    window.alert(data.error);  // [1, 2, 3]
+</script>
 {% endblock %}
