@@ -114,6 +114,7 @@ class FoodStoreView(View):
     def check_money(self, context, obon, item):
         if(obon.money - item_moneys[item] < 0):
             context |= {
+                'obon': obon,
                 'error':'所持金が足りません！'
             }
             return True
