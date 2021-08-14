@@ -6,7 +6,9 @@
 {% endblock stylesheet %}
 
 {% block main %}
-<h2>{{ error }}</h2>
+{% if error_flag == 1 %}
+    <div class="alert alert-danger">{{ error }}</div>
+{% endif %}
 {% if flag != 1 %}
     <div class="name-container">
         <dvi class="obon-name"><span class="name">{{ obon.name }}</span></dvi>
@@ -36,33 +38,37 @@
         <img src="{{ obon.image.url }}" alt="おぼんの画像">
     </div>
 {% else %}
-<div class="name-container">
-    <dvi class="obon-name"><span class="name">{{ obon.name }}</span></dvi>
-    <div class="price-tag">
-        所持金：{{ obon.money }}円 <strong><font color="red">(- {{ money }})</font></strong>
-    </div>
-</div>
+    {% if evo_flag == 1 %}
+    <div class="alert alert-success">{{ obon.name }} は {{ obon.material }} おぼんに進化した！</div>
+    {% endif %}
 
-<div class="obon-img">
-    <div class="potential">
-        <div class="ability">
-            <ul>素材 : {{ obon.material }}</ul>
-        </div>
-        <div class="ability">
-            <ul>大きさ : {{ obon.size }} <strong><font color="blue">(+ {{ size }})</font></strong></ul>
-        </div>
-        <div class="ability">
-            <ul>賢さ :{{ obon.wise }} <strong><font color="blue">(+ {{ wise }})</font></strong></ul>
-        </div>
-        <div class="ability">
-            <ul>重さ : {{ obon.weight }} <strong><font color="blue">(+ {{ weight }})</font></strong></ul>
-        </div>
-        <div class="ability">
-            <ul>やる気 : {{ obon.motivation }} <strong><font color="blue">(+ {{ motivation }})</font></strong></ul>
+    <div class="name-container">
+        <dvi class="obon-name"><span class="name">{{ obon.name }}</span></dvi>
+        <div class="price-tag">
+            所持金：{{ obon.money }}円 <strong><font color="red">(- {{ money }})</font></strong>
         </div>
     </div>
-    <img src="{{ obon.image.url }}" alt="おぼんの画像">
-</div>
+
+    <div class="obon-img">
+        <div class="potential">
+            <div class="ability">
+                <ul>素材 : {{ obon.material }}</ul>
+            </div>
+            <div class="ability">
+                <ul>大きさ : {{ obon.size }} <strong><font color="blue">(+ {{ size }})</font></strong></ul>
+            </div>
+            <div class="ability">
+                <ul>賢さ :{{ obon.wise }} <strong><font color="blue">(+ {{ wise }})</font></strong></ul>
+            </div>
+            <div class="ability">
+                <ul>重さ : {{ obon.weight }} <strong><font color="blue">(+ {{ weight }})</font></strong></ul>
+            </div>
+            <div class="ability">
+                <ul>やる気 : {{ obon.motivation }} <strong><font color="blue">(+ {{ motivation }})</font></strong></ul>
+            </div>
+        </div>
+        <img src="{{ obon.image.url }}" alt="おぼんの画像">
+    </div>
 {% endif %}
 
 <div class="three-dimensions-card goto-card">
@@ -70,10 +76,4 @@
     <a href="#" class="btn-circle-3d">ゲーム屋台</a>
     <a href="{% url 'battle' %}" class="btn-circle-3d">{{ battle }}</a>
 </div>
-
-<script>
-    const data = JSON.parse('{{ data_json|safe }}');
-    console.log(data.error)
-    window.alert(data.error);  // [1, 2, 3]
-</script>
 {% endblock %}
