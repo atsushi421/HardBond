@@ -75,4 +75,3 @@ body{
 .rotate{
     animation-fill-mode: forwards;
     animation: rotate 1s linear 5;
-}
