@@ -38,6 +38,7 @@ class FoodStoreView(View):
             context |= {
                 'obon' : obon,
                 'error' : '買える物がありません！',
+                'error_flag': 1,
                 'battle' : "戦闘画面へ！"
             }
             return render(request, 'registration/index.html', context)
@@ -93,16 +94,18 @@ class FoodStoreView(View):
         
         # --進化判定--
         # 銀のおぼん
-        if(obon.weight > 10):
+        if(obon.weight > 10 and obon.material != 'Silver'):
             obon.image = 'silver.jpg'
             obon.material = 'Silver'
             obon.save()
+            context |= {'evo_flag':1}
         
         # うるしのおぼん
-        if(obon.motivation > 8):
+        if(obon.motivation > 8 and obon.material != 'Urushi'):
             obon.image = 'urushi.jpg'
-            obon.material = 'urushi'
+            obon.material = 'Urushi'
             obon.save()
+            context |= {'evo_flag':1}
 
 
         context |= {
@@ -114,7 +117,9 @@ class FoodStoreView(View):
     def check_money(self, context, obon, item):
         if(obon.money - item_moneys[item] < 0):
             context |= {
-                'error':'所持金が足りません！'
+                'obon': obon,
+                'error':'所持金が足りません！',
+                'error_flag': 1,
             }
             return True
     
