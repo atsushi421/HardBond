@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path, include  # include は委譲
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView
-from .views import signup, activate, home, store, flying
+from .views import signup, activate, home, store, flying, results
 
 
 # トップページはこのように書く
@@ -16,4 +16,6 @@ urlpatterns = [
     path('home/', home.HomeView.as_view()),
     path('foodstore/', store.FoodStoreView.as_view()),
     path('flying/', flying.FlyingView.as_view()),
+
+    path('results/', results.ResultsView.as_view()),
 ]

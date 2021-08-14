@@ -11,6 +11,17 @@ body{
     background-size: cover;
 }
 
+.distance{
+    position: absolute;
+    right: 100px;
+    top: 50px;
+    background-color: #ffc107;
+    color: white;
+    padding: 30px;
+    font-size: 25px;
+    border-radius: 2em;
+}
+
 .daytime{
     background: url("daytime.png");
     height: 360px;
@@ -33,22 +44,35 @@ body{
     }
 }
 
-@keyframes suspention {
+@keyframes down {
     100%{
-        transform: translateY(0px);
-    }
-    50%{
-        transform: translateY(10px);
+        transform: translateY(450px);
     }
     0%{
         transform: translateY(0px);
     }
 }
 
-.moving{
-    animation: moving 10s linear infinite;
+@keyframes rotate {
+    100%{
+        transform: rotate(360deg);
+    }
+    0%{
+        transform: rotate(0deg);
+    }
 }
 
-.suspention{
-    animation: suspention 1s linear infinite;
+.moving{
+    animation-fill-mode: forwards;
+    animation: moving 5s linear;
+}
+
+.down{
+    animation-fill-mode: forwards;
+    animation: down 5s linear;
+}
+
+.rotate{
+    animation-fill-mode: forwards;
+    animation: rotate 1s linear 5;
 }
