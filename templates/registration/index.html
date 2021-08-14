@@ -3,7 +3,41 @@
 <h2>会員ページ</h2>
 <p>{{ user }}さん、こんにちは！</p>  <!-- user はデフォルトで使用できる変数。アクセスしているユーザを返す -->
 
+<div>
+    <hr>
+    <p><a href="{% url 'battle' %}">{{ battle }}</a></p>
+    <h2>現在のおぼん</h2>
+    <li><img src="{{ obon.image.url }}" width="100" height="100"/></li>
+    <li>name: {{ obon.name }}</li>
+    <li>money: {{ obon.money }} </li>
+    <li>material: {{ obon.material }} </li>
+    <li>size: {{ obon.size }} </li>
+    <li>wise: {{ obon.wise }} </li>
+    <li>weight: {{ obon.weight }} </li>
+    <li>motivation: {{ obon.motivation }} </li>
+    <p></p>
+    <form action="{% url 'index' %}" method="post">
+        {% csrf_token %}
+        <input type="submit" name="reset" value="リセット">
+    </form>
+</div>
+
+<div>
+    <hr>
+    <h2>食べ物</h2>
+    <h3>{{ error }}</h3>
+    <p></p>
+    <form action="{% url 'index' %}" method="post">
+        {% csrf_token %}
+        <input type="submit" name="takoyaki" value="たこ焼き">
+        <input type="submit" name="ringoame" value="リンゴ飴">
+    </form>
+</div>
+
+
+
 <!-- 下の URL 名は決められたものなので、間違えないようにする -->
+<hr>
 <p><a href="{% url 'logout' %}">ログアウト</a></p>
 <p><a href="{% url 'password_change' %}">パスワードの変更</a></p>
 <p><a href="{% url 'password_reset' %}">パスワードを忘れた場合</a></p>
