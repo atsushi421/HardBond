@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'home.css' %}">
+<link rel="stylesheet" href="{% static 'store.css' %}">
+{% endblock %}
+
+{% block main %}
+<div class="name-container">
+    <dvi class="obon-name"><span class="name">たいる</span></dvi>
+    <div class="price-tag">
+        所持金：800円
+    </div>
+</div>
+<div class="shop-container">
+    <section class="food-card">
+        <img class="food-card-img" src="{% static 'apple.jpg' %}" alt="">
+        <div class="food-card-content">
+          <h3 class="food-card-title">りんご</h3>
+          <p class="food-card-text">300円</p>
+        </div>
+        <div class="button-content">
+            <button type="button" class="btn btn-primary rounded-pill purchase">購入</button>
+        </div>
+    </section>
+    <section class="food-card">
+        <img class="food-card-img" src="{% static 'apple.jpg' %}" alt="">
+        <div class="food-card-content">
+          <h3 class="food-card-title">りんご</h3>
+          <p class="food-card-text">300円</p>
+        </div>
+        <div class="button-content">
+            <button type="button" class="btn btn-primary rounded-pill purchase">購入</button>
+        </div>
+    </section>
+    <section class="food-card">
+        <img class="food-card-img" src="{% static 'apple.jpg' %}" alt="">
+        <div class="food-card-content">
+          <h3 class="food-card-title">りんご</h3>
+          <p class="food-card-text">300円</p>
+        </div>
+        <div class="button-content">
+            <button type="button" class="btn btn-primary rounded-pill purchase">購入</button>
+        </div>
+    </section>
+    <section class="food-card">
+        <img class="food-card-img" src="{% static 'apple.jpg' %}" alt="">
+        <div class="food-card-content">
+          <h3 class="food-card-title">りんご</h3>
+          <p class="food-card-text">300円</p>
+        </div>
+        <div class="button-content">
+            <button type="button" class="btn btn-primary rounded-pill purchase">購入</button>
+        </div>
+    </section>
+    <section class="food-card">
+        <img class="food-card-img" src="{% static 'apple.jpg' %}" alt="">
+        <div class="food-card-content">
+          <h3 class="food-card-title">りんご</h3>
+          <p class="food-card-text">300円</p>
+        </div>
+        <div class="button-content">
+            <button type="button" class="btn btn-primary rounded-pill purchase">購入</button>
+        </div>
+    </section>
+    <section class="food-card">
+        <img class="food-card-img" src="{% static 'apple.jpg' %}" alt="">
+        <div class="food-card-content">
+          <h3 class="food-card-title">りんご</h3>
+          <p class="food-card-text">300円</p>
+        </div>
+        <div class="button-content">
+            <button type="button" class="btn btn-primary rounded-pill purchase">購入</button>
+        </div>
+    </section>
+</div>
+
+<div class="obon-img">
+    <div class="potential">
+        <div class="ability">
+            <ul>大きさ : 50</ul>
+        </div>
+        <div class="ability">
+            <ul>賢さ : 50</ul>
+        </div>
+        <div class="ability">
+            <ul>重さ : 50</ul>
+        </div>
+        <div class="ability">
+            <ul>素材 : 50</ul>
+        </div>
+        <div class="ability">
+            <ul>やる気 : 50</ul>
+        </div>
+    </div>
+    <img src="{% static 'obon.png' %}" alt="おぼんの画像">
+</div>
+<div class="three-dimensions-card goto-card">
+    <a href="#" class="btn-circle-3d">食べ物屋台</a>
+    <a href="#" class="btn-circle-3d">ゲーム屋台</a>
+    <a href="#" class="btn-circle-3d">対戦へ</a>
+</div>
+{% endblock %}

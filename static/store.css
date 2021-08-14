@@ -1,0 +1,40 @@
+.shop-container{
+    display: flex;
+    margin: 10px 0;
+}
+
+.food-card {
+    margin: 30px auto;
+    width: 150px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px #ccc;
+  }
+  .food-card-img {
+    border-radius: 5px 5px 0 0;
+    max-width: 100%;
+    height: auto;
+  }
+  .food-card-content {
+    padding: 5px 5px 1px 5px;
+  }
+  .food-card-title {
+    font-size: 20px;
+    margin-bottom: 5px;
+    text-align: center;
+    color: #333;
+  }
+  .food-card-text {
+    color: #777;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+
+  .button-content{
+      width: 100%;
+  }
+  .purchase{
+    margin: 0 0 10% 30%;
+  }
