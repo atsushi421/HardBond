@@ -2,6 +2,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
 from django.urls import reverse_lazy
 from django.conf import settings
+from django import forms
+from .models import Obon
 
 # メール認証をするときのテンプレ
 from django.contrib.auth.tokens import default_token_generator
@@ -45,7 +47,15 @@ class SignUpForm(UserCreationForm):
             message = message_template + activate_url  # メール本文に URL を付ける
             user.email_user(subject, message)  # メール送信
         return user
-        
+
+
+class ObonCreateForm(forms.ModelForm):
+        class Meta:
+            model = Obon
+            fields = ("user", "name",)
+            exclude= ("user",)
+
+            
         
 # ユーザ認証を行い、ユーザを有効化して、DBに保存する
 def activate_user(uidb64, token):    

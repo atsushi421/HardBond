@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'results.css' %}">
+{% endblock %}
+
+{% block main %}
+<div class="name-container">
+    <div class="results-container">
+        結果発表
+        <div class="results-container__side results-container__side--left"></div>    
+        <div class="results-container__triangle results-container__triangle--left"></div>
+        <div class="results-container__triangle results-container__triangle--right"></div>
+        <div class="results-container__side results-container__side--right"></div>
+    </div>
+    <table class="design08">
+        <tr>
+            <th>順位</th>
+            <th>名前</th>
+            <th>飛距離</th>
+         </tr>
+        <tr>
+            <td>1位</td>
+            <td>{{ rank1.name }}</td>
+            <td>{{ rank1.result }} km</td>
+        </tr>
+        <tr>
+            <td>2位</td>
+            <td>{{ rank2.name }}</td>
+            <td>{{ rank2.result }} km</td>
+        </tr>
+        <tr>
+            <td>3位</td>
+            <td>{{ rank3.name }}</td>
+            <td>{{ rank3.result }} km</td>
+        </tr>
+        <tr>
+            <td>4位</td>
+            <td>{{ rank4.name }}</td>
+            <td>{{ rank4.result }} km</td>
+        </tr>
+        <tr>
+            <td>5位</td>
+            <td>{{ rank5.name }}</td>
+            <td>{{ rank5.result }} km</td>
+        </tr>
+        <tr>
+            <td>6位</td>
+            <td>{{ rank6.name }}</td>
+            <td>{{ rank6.result }} km</td>
+        </tr>
+        <tr>
+            <td>7位</td>
+            <td>{{ rank7.name }}</td>
+            <td>{{ rank7.result }} km</td>
+        </tr>
+        <tr>
+            <td>8位</td>
+            <td>{{ rank8.name }}</td>
+            <td>{{ rank8.result }} km</td>
+        </tr>
+        <tr>
+            <td>9位</td>
+            <td>{{ rank9.name }}</td>
+            <td>{{ rank9.result }} km</td>
+        </tr>
+        <tr>
+            <td>10位</td>
+            <td>{{ rank10.name }}</td>
+            <td>{{ rank10.result }} km </td>
+        </tr>
+       </table>
+</div>
+{% endblock %}

@@ -1,5 +1,6 @@
 body{
     background-color: whitesmoke;
+    background-image: url("background.jpg")
 }
 
 /* 名前*/
@@ -178,7 +179,7 @@ body{
 
     /* Size */
     height: var(--price-tag-height);
-    width: 150px;
+    /* width: 100px; */
 
     /* Spacing */
     padding: 0.25rem 0.5rem;
@@ -237,4 +238,3 @@ body{
 
 .container .text-muted {
     margin: 20px 0; 
-  }
