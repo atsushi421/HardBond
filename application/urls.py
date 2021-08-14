@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path, include  # include は委譲
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView
-from .views import signup, activate, home, store
+from .views import signup, activate, home, store, flying
 
 
 # トップページはこのように書く
@@ -15,4 +15,5 @@ urlpatterns = [
     path('activate/<uidb64>/<token>/', activate.ActivateView.as_view(), name='activate'),  # <>はビュー側でパラメータとして受け取れる
     path('home/', home.HomeView.as_view()),
     path('foodstore/', store.FoodStoreView.as_view()),
+    path('flying/', flying.FlyingView.as_view()),
 ]
