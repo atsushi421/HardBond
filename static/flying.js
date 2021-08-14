@@ -27,7 +27,7 @@ addEventListener('keypress', function(e){
         const intervalId = setInterval(() =>{
             let duaration = Date.now() - startTime;
             let dis = calcDistance(duaration);
-            if(duaration / 1000  >= flyingTime){
+            if(duaration / 1000  > flyingTime){
                 clearInterval(intervalId);　//intervalIdをclearIntervalで指定している
                 endView(dis - (( 90.0 / 1000 ) * 500));
             }
