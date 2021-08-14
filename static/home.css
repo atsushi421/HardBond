@@ -178,7 +178,7 @@ body{
 
     /* Size */
     height: var(--price-tag-height);
-    width: 150px;
+    /* width: 100px; */
 
     /* Spacing */
     padding: 0.25rem 0.5rem;

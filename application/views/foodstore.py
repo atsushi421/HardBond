@@ -3,9 +3,11 @@ from django.shortcuts import render, redirect
 from ..models import Obon
 import json
 
-item_moneys = {'takoyaki':100, 'ringoame': 150}
+item_moneys = {'takoyaki':100, 'ringoame': 150, 'yakisoba':200, 'tyokobanana':230}
 takoyaki = {'size': 3, 'wise': 1, 'weight': 4, 'motivation': 2}
 ringoame = {'size': 2, 'wise': 0, 'weight': 1, 'motivation': 2}
+yakisoba = {'size': 1, 'wise': 5, 'weight': 2, 'motivation': 6}
+tyokobanana = {'size': 0, 'wise': 0, 'weight': 0, 'motivation': 10}
 
 
 class FoodStoreView(View):
@@ -40,7 +42,7 @@ class FoodStoreView(View):
             }
             return render(request, 'registration/index.html', context)
 
-                
+        # たこ焼き
         if('takoyaki' in request.POST):
             if(self.check_money(context, obon, 'takoyaki')):
                 return render(request, 'registration/index.html', {'data_json': json.dumps(context)})
@@ -52,17 +54,42 @@ class FoodStoreView(View):
             obon.save()
             self.grow_up(obon, takoyaki)
         
-        
+        # りんご飴
         if('ringoame' in request.POST):
             if(self.check_money(context, obon, 'ringoame')):
                 return render(request, 'registration/index.html', context)
             
-            context |= takoyaki
+            context |= ringoame
             context |= {'money':item_moneys['ringoame'], 'flag' : 1}
             
             obon.money -= item_moneys["ringoame"]
             obon.save()
             self.grow_up(obon, ringoame)
+            
+        # やきそば
+        if('yakisoba' in request.POST):
+            if(self.check_money(context, obon, 'yakisoba')):
+                return render(request, 'registration/index.html', context)
+            
+            context |= yakisoba
+            context |= {'money':item_moneys['yakisoba'], 'flag' : 1}
+            
+            obon.money -= item_moneys["yakisoba"]
+            obon.save()
+            self.grow_up(obon, yakisoba)
+        
+        # チョコバナナ
+        if('tyokobanana' in request.POST):
+            if(self.check_money(context, obon, 'tyokobanana')):
+                return render(request, 'registration/index.html', context)
+            
+            context |= tyokobanana
+            context |= {'money':item_moneys['tyokobanana'], 'flag' : 1}
+            
+            obon.money -= item_moneys["tyokobanana"]
+            obon.save()
+            self.grow_up(obon, tyokobanana)
+        
         
         # --進化判定--
         # 銀のおぼん

@@ -12,7 +12,7 @@
   }
   .food-card-img {
     border-radius: 5px 5px 0 0;
-    max-width: 100%;
+    max-height: 120px;
     height: auto;
   }
   .food-card-content {
