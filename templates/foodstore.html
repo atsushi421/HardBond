@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'home.css' %}">
+<link rel="stylesheet" href="{% static 'store.css' %}">
+{% endblock %}
+
+{% block main %}
+<div class="name-container">
+    <dvi class="obon-name"><span class="name">{{ obon.name }}</span></dvi>
+    <div class="price-tag">
+    <strong>所持金</strong>：{{ obon.money }}円
+    </div>
+</div>
+
+<div class="obon-img">
+    <div class="potential">
+        <div class="ability">
+            <ul><strong>素材</strong> : {{ obon.material }}</ul>
+        </div>
+        <div class="ability">
+            <ul><strong>大きさ</strong> : {{ obon.size }}</ul>
+        </div>
+        <div class="ability">
+            <ul><strong>賢さ</strong> :{{ obon.wise }}</ul>
+        </div>
+        <div class="ability">
+            <ul><strong>重さ</strong> : {{ obon.weight }}</ul>
+        </div>
+        <div class="ability">
+            <ul><strong>やる気</strong> : {{ obon.motivation }}</ul>
+        </div>
+    </div>
+    <img class="small-obon" src="{{ obon.image.url }}" alt="おぼんの画像" height="300" width="100">
+</div>
+
+<div class="shop-container">
+    <section class="food-card">
+        <p class="center">
+            <img class="food-card-img" src="{% static 'takoyaki.png' %}" alt="">
+        </p>
+        <div class="food-card-content">
+          <h3 class="food-card-title">たこやき</h3>
+          <p class="food-card-text">100円</p>
+        </div>
+        <form action="{% url 'foodstore' %}" method="post">
+            {% csrf_token %}
+            <input type="submit" name="takoyaki" value="購入" class="btn btn-primary rounded-pill purchase">
+        </form>
+    </section>
+    <section class="food-card">
+        <p class="center">
+            <img class="food-card-img" src="{% static 'ringoame.png' %}" alt="">
+        </p>
+        <div class="food-card-content">
+          <h3 class="food-card-title">りんご飴</h3>
+          <p class="food-card-text">150円</p>
+        </div>
+        <form action="{% url 'foodstore' %}" method="post">
+            {% csrf_token %}
+            <input type="submit" name="ringoame" value="購入" class="btn btn-primary rounded-pill purchase">
+        </form>
+    </section>
+    <section class="food-card">
+        <p class="center">
+            <img class="food-card-img" src="{% static 'yakisoba.png' %}" alt="">
+        </p>
+        <div class="food-card-content">
+          <h3 class="food-card-title">やきそば</h3>
+          <p class="food-card-text">200円</p>
+        </div>
+        <form action="{% url 'foodstore' %}" method="post">
+            {% csrf_token %}
+            <input type="submit" name="yakisoba" value="購入" class="btn btn-primary rounded-pill purchase">
+        </form>
+    </section>
+    <section class="food-card">
+        <p class="center">
+            <img class="food-card-img" src="{% static 'tyokobanana.png' %}" alt="">
+        </p>
+        <div class="food-card-content">
+          <h3 class="food-card-title">チョコバナナ</h3>
+          <p class="food-card-text">230円</p>
+        </div>
+        <form action="{% url 'foodstore' %}" method="post">
+            {% csrf_token %}
+            <input type="submit" name="tyokobanana" value="購入" class="btn btn-primary rounded-pill purchase">
+        </form>
+    </section>
+    <section class="food-card">
+        <p class="center">
+            <img class="food-card-img" src="{% static 'kyuri.png' %}" alt="">
+        </p>
+        <div class="food-card-content">
+          <h3 class="food-card-title">きゅうり</h3>
+          <p class="food-card-text">80円</p>
+        </div>
+        <form action="{% url 'foodstore' %}" method="post">
+            {% csrf_token %}
+            <input type="submit" name="kyuri" value="購入" class="btn btn-primary rounded-pill purchase">
+        </form>
+    </section>
+    <section class="food-card">
+        <p class="center">
+            <img class="food-card-img" src="{% static 'watagashi.png' %}" alt="">
+        </p>
+        <div class="food-card-content">
+          <h3 class="food-card-title">わたがし</h3>
+          <p class="food-card-text">150円</p>
+        </div>
+        <form action="{% url 'foodstore' %}" method="post">
+            {% csrf_token %}
+            <input type="submit" name="watagashi" value="購入" class="btn btn-primary rounded-pill purchase">
+        </form>
+    </section>
+    <form action="{% url 'foodstore' %}" method="post">
+        {% csrf_token %}
+        <input type="submit" name="reset" value="リセット">
+    </form>
+</div>
+{% endblock %}

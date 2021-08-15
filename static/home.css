@@ -1,0 +1,247 @@
+body{
+    background-color: whitesmoke;
+    background-image: url("background.jpg")
+}
+
+/* 名前*/
+.name-container{
+    display: flex;
+}
+.name{
+    font-size: xx-large;
+}
+.obon-name{
+    margin-right: 30px;
+    background-color: cornflowerblue;
+    color: white;
+    /* border-radius: 20%; */
+    position: relative;
+    padding: 0.5em;
+}
+
+.circle{
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: skyblue;
+}
+
+.circle > .money{
+    position: absolute;
+    display: inline-block;
+    left: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width :80px;
+    text-align:center;
+}
+
+/*画像*/
+.obon-img{
+    display: flex;
+    /* justify-content: space-evenly; */
+}
+
+.obon-img img{
+    width: 33vw;
+    margin-left: 110px;
+}
+
+/*能力*/
+.potential{
+    display: flex;
+    width: 10vw;
+    height: 15vw;
+    background-color: rgb(141, 214, 172);
+    border:2px solid rgba(0, 0, 0, 0.3);
+
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.ability{
+    background-color: white;
+    border-radius: 5%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.ability ul{
+    padding: 2px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+
+
+/* ボタンを置くとこ */
+:root {
+    --three-dimensions-card-left-side-width: 1rem;
+}
+
+.three-dimensions-card {
+    position: relative;
+    background-color: white;
+}
+
+/* The left side */
+.three-dimensions-card::before { 
+    background: rgba(0, 0, 0, 0.3);
+    content: '';
+    
+    /* Position */
+    top: var(--three-dimensions-card-left-side-width);
+    left: 0px;
+    position: absolute;
+    transform: translate(-100%, 0) skewY(-45deg);
+    transform-origin: left top;
+
+    /* Size */
+    height: 100%;
+    width: var(--three-dimensions-card-left-side-width);
+}
+
+/* The bottom side */
+.three-dimensions-card::after {
+    background: rgba(0, 0, 0, 0.3);
+    content: '';    
+    
+    /* Position */
+    bottom: 0px;
+    left: 0px;
+    position: absolute;
+    transform: translate(0, 100%) skewX(-45deg);
+    transform-origin: left top;
+
+    /* Size */
+    height: var(--three-dimensions-card-left-side-width);
+    width: 100%;
+}
+
+
+/* ボタン*/
+.goto-card{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+
+.goto-card .finish {
+    background: #4514e6;
+    color: white;
+}
+
+.btn-circle-3d {
+    display: inline-block;
+    /* text-decoration: none; */
+    background: #ff8181;
+    color: #FFF;
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    overflow: hidden;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+    border-bottom: solid 3px #bd6565;
+    transition: .4s;
+}
+
+.btn-circle-3d:active {
+    -webkit-transform: translateY(2px);
+    transform: translateY(2px);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+    border-bottom: none;
+}
+
+
+.btn-circle-3d:hover{
+    color: white;
+}
+
+
+/* 価格タグ */
+:root {
+    --price-tag-background: rgb(250, 250, 4);
+    --price-tag-height: 2rem;
+}
+
+.price-tag {
+    background: var(--price-tag-background);
+    color: rgb(0, 0, 0);
+
+    /* Center the price */
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    /* Used to position the triangle */
+    position: relative;
+
+    /* Size */
+    height: var(--price-tag-height);
+    /* width: 100px; */
+
+    /* Spacing */
+    padding: 0.25rem 0.5rem;
+    margin-top: 8px;
+}
+
+/* The triangle */
+.price-tag::before {
+    content: '';
+
+    border-color: transparent var(--price-tag-background) transparent transparent;
+    border-style: solid;
+    border-width: calc(var(--price-tag-height) / 2)
+                  calc(var(--price-tag-height) / 2)
+                  calc(var(--price-tag-height) / 2)
+                  0rem;
+    
+    /* Position */
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    transform: translate(-100%, 0px);
+}
+
+/* The dot */
+.price-tag::after {
+    content: '';
+
+    /* Make it like a cirle */ 
+    background: #FFF;
+    border-radius: 9999rem;
+    
+    /* Position */
+    left: 0;
+    position: absolute;
+    top: 50%;
+    transform: translate(-0.5rem, -50%);
+
+    /* Size */
+    height: 0.5rem;
+    width: 0.5rem;
+}
+
+
+
+/* Sticky footer styles
+-------------------------------------------------- */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #f5f5f5;
+}
+
+.container .text-muted {
+    margin: 20px 0;
+}

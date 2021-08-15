@@ -136,3 +136,6 @@ LOGOUT_REDIRECT_URL = "/login/"  # ログアウト後の URL
 AUTH＿USER_MODEL = 'application.User'  # プロジェクト全体で使用するユーザモデル
 
 FRONTEND_URL = 'http://127.0.0.1:8000' 
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")

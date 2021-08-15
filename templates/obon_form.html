@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'form.css' %}">
+{% endblock %}
+
+{% block main %}
+<div class="layered-card">
+    <p class="letter">
+        あなたは <span class="obon">おぼん</span>です。<br>
+        お母さんからもらった <span class="obon">1000円</span>の中で自分を成長させ、<br>
+        おぼん界の頂点を目指しましょう！
+    </p>
+</div>
+<div class="post-container">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="生成" class="btn generate" />
+    </form>
+</div>
+{% endblock %}
