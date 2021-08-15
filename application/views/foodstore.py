@@ -3,11 +3,13 @@ from django.shortcuts import render, redirect
 from ..models import Obon
 import json
 
-item_moneys = {'takoyaki':100, 'ringoame': 150, 'yakisoba':200, 'tyokobanana':230}
+item_moneys = {'takoyaki':100, 'ringoame': 150, 'yakisoba':200, 'tyokobanana':230, 'kyuri':80, 'watagashi':150}
 takoyaki = {'size': 3, 'wise': 1, 'weight': 4, 'motivation': 2}
 ringoame = {'size': 2, 'wise': 0, 'weight': 1, 'motivation': 2}
 yakisoba = {'size': 1, 'wise': 5, 'weight': 2, 'motivation': 6}
 tyokobanana = {'size': 0, 'wise': 0, 'weight': 0, 'motivation': 10}
+kyuri = {'size': 2, 'wise': 2, 'weight': 1, 'motivation': 1}
+watagashi = {'size': 0, 'wise': 5, 'weight': 0, 'motivation': 3}
 
 
 class FoodStoreView(View):
@@ -37,7 +39,7 @@ class FoodStoreView(View):
         if(flag == 0):  # 買えるものが無ければ戦闘画面へ
             context |= {
                 'obon' : obon,
-                'error' : '買える物がありません！',
+                'error' : '買える物がありません！「フライングおぼん」に挑みましょう！',
                 'error_flag': 1,
                 'battle' : "戦闘画面へ！"
             }
@@ -91,21 +93,59 @@ class FoodStoreView(View):
             obon.save()
             self.grow_up(obon, tyokobanana)
         
+        # きゅうり
+        if('kyuri' in request.POST):
+            if(self.check_money(context, obon, 'kyuri')):
+                return render(request, 'registration/index.html', context)
+            
+            context |= kyuri
+            context |= {'money':item_moneys['kyuri'], 'flag' : 1}
+            
+            obon.money -= item_moneys["kyuri"]
+            obon.save()
+            self.grow_up(obon, kyuri)
+        
+        # わたがし
+        if('watagashi' in request.POST):
+            if(self.check_money(context, obon, 'watagashi')):
+                return render(request, 'registration/index.html', context)
+            
+            context |= watagashi
+            context |= {'money':item_moneys['watagashi'], 'flag' : 1}
+            
+            obon.money -= item_moneys["watagashi"]
+            obon.save()
+            self.grow_up(obon, watagashi)
+        
         
         # --進化判定--
         # 銀のおぼん
-        if(obon.weight > 10 and obon.material != 'Silver'):
+        if(obon.wise > 10):
             obon.image = 'silver.jpg'
             obon.material = 'Silver'
             obon.save()
-            context |= {'evo_flag':1}
+            context |= {'evo_flag':1, 'message':'銀のおぼんに進化した！美しい、、'}
         
         # うるしのおぼん
-        if(obon.motivation > 8 and obon.material != 'Urushi'):
+        if(obon.motivation > 8):
             obon.image = 'urushi.jpg'
             obon.material = 'Urushi'
             obon.save()
-            context |= {'evo_flag':1}
+            context |= {'evo_flag':1, 'message':'うるしのおぼんに進化した！つやつやしている'}
+            
+        # 鉄のおぼん
+        if(obon.weight > 20):
+            obon.image = 'iron.png'
+            obon.material = 'Iron'
+            obon.save()
+            context |= {'evo_flag':1, 'message':'鉄のおぼんに進化してしまった！飛距離2分の1、、'}
+        
+        # 金のおぼん
+        if(obon.money == 0):
+            obon.image = 'gold.jpg'
+            obon.material = 'Gold'
+            obon.save()
+            context |= {'evo_flag':1, 'message':'伝説の金のおぼんに進化した！飛距離2倍！！'}
 
 
         context |= {
