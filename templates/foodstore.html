@@ -10,29 +10,29 @@
 <div class="name-container">
     <dvi class="obon-name"><span class="name">{{ obon.name }}</span></dvi>
     <div class="price-tag">
-        所持金：{{ obon.money }}円
+    <strong>所持金</strong>：{{ obon.money }}円
     </div>
 </div>
 
 <div class="obon-img">
     <div class="potential">
         <div class="ability">
-            <ul>素材 : {{ obon.material }}</ul>
+            <ul><strong>素材</strong> : {{ obon.material }}</ul>
         </div>
         <div class="ability">
-            <ul>大きさ : {{ obon.size }}</ul>
+            <ul><strong>大きさ</strong> : {{ obon.size }}</ul>
         </div>
         <div class="ability">
-            <ul>賢さ :{{ obon.wise }}</ul>
+            <ul><strong>賢さ</strong> :{{ obon.wise }}</ul>
         </div>
         <div class="ability">
-            <ul>重さ : {{ obon.weight }}</ul>
+            <ul><strong>重さ</strong> : {{ obon.weight }}</ul>
         </div>
         <div class="ability">
-            <ul>やる気 : {{ obon.motivation }}</ul>
+            <ul><strong>やる気</strong> : {{ obon.motivation }}</ul>
         </div>
     </div>
-    <img src="{{ obon.image.url }}" alt="おぼんの画像">
+    <img class="small-obon" src="{{ obon.image.url }}" alt="おぼんの画像" height="300" width="100">
 </div>
 
 <div class="shop-container">
@@ -119,15 +119,4 @@
         <input type="submit" name="reset" value="リセット">
     </form>
 </div>
-
-<div class="three-dimensions-card goto-card">
-    <a href="{% url 'foodstore' %}" class="btn-circle-3d">食べ物屋台</a>
-    <a href="#" class="btn-circle-3d">ゲーム屋台</a>
-    <a href="{% url 'battle' %}" class="btn-circle-3d">{{ battle }}</a>
-</div>
-
-<script>
-const data = JSON.parse('{{ data_json.size|safe }}');
-window.alert("{{ data }}");  // [1, 2, 3]
-</script>
 {% endblock %}
