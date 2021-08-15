@@ -127,6 +127,12 @@ body{
 .goto-card{
     display: flex;
     justify-content: space-evenly;
+    margin-top: 20px;
+}
+
+.goto-card .finish {
+    background: #4514e6;
+    color: white;
 }
 
 .btn-circle-3d {

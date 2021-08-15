@@ -78,7 +78,7 @@
     <a href="{% url 'foodstore' %}" class="btn-circle-3d">食べ物屋台</a>
     <a href="#" class="btn-circle-3d">ゲーム屋台</a>
     {% if finish_flag == 1 %}
-        <a href="{% url 'battle' %}" class="btn-circle-3d"><strong><font color="green">{{ battle }}</font></strong></a>
+        <a href="{% url 'battle' %}" class="btn-circle-3d finish"><strong>{{ battle }}</strong></a>
     {% endif %}
 </div>
 {% endblock %}
