@@ -21,7 +21,7 @@ class BattleView(View):
 
         # 飛距離を計算
         distance = time * 89 
-        result = Result.objects.create(name=obon.name, result=distance)
+        result = Result.objects.create(user_name=request.user.username, name=obon.name, result=distance)
         result.save()
         
         data = {

@@ -131,7 +131,7 @@ body{
 
 .btn-circle-3d {
     display: inline-block;
-    text-decoration: none;
+    /* text-decoration: none; */
     background: #ff8181;
     color: #FFF;
     width: 120px;
@@ -161,13 +161,13 @@ body{
 
 /* 価格タグ */
 :root {
-    --price-tag-background: rgba(0, 0, 0, 0.3);
+    --price-tag-background: rgb(250, 250, 4);
     --price-tag-height: 2rem;
 }
 
 .price-tag {
     background: var(--price-tag-background);
-    color: #FFF;
+    color: rgb(0, 0, 0);
 
     /* Center the price */
     align-items: center;

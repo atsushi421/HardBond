@@ -39,8 +39,8 @@ class FoodStoreView(View):
         if(flag == 0):  # 買えるものが無ければ戦闘画面へ
             context |= {
                 'obon' : obon,
-                'error' : '買える物がありません！「フライングおぼん」に挑みましょう！',
-                'error_flag': 1,
+                'finish' : '買える物がありません！「フライングおぼん」に挑みましょう！',
+                'finish_flag': 1,
                 'battle' : "戦闘画面へ！"
             }
             return render(request, 'registration/index.html', context)
@@ -48,7 +48,7 @@ class FoodStoreView(View):
         # たこ焼き
         if('takoyaki' in request.POST):
             if(self.check_money(context, obon, 'takoyaki')):
-                return render(request, 'registration/index.html', {'data_json': json.dumps(context)})
+                return render(request, 'registration/index.html', context)
             
             context |= takoyaki
             context |= {'money':item_moneys['takoyaki'], 'flag' : 1}
@@ -128,7 +128,7 @@ class FoodStoreView(View):
         
         # うるしのおぼん
         if(obon.motivation > 8):
-            obon.image = 'urushi.jpg'
+            obon.image = 'urushi.png'
             obon.material = 'Urushi'
             obon.save()
             context |= {'evo_flag':1, 'message':'うるしのおぼんに進化した！つやつやしている'}
@@ -142,7 +142,7 @@ class FoodStoreView(View):
         
         # 金のおぼん
         if(obon.money == 0):
-            obon.image = 'gold.jpg'
+            obon.image = 'gold.png'
             obon.material = 'Gold'
             obon.save()
             context |= {'evo_flag':1, 'message':'伝説の金のおぼんに進化した！飛距離2倍！！'}
