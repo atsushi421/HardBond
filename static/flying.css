@@ -20,6 +20,20 @@ body{
     padding: 30px;
     font-size: 25px;
     border-radius: 2em;
+    border: 5px solid #f8f9fa;
+}
+
+
+.enter{
+    position: absolute;
+    right: 40%;
+    top: 40%;
+    background-color: #dc3545;
+    color: white;
+    padding: 30px;
+    font-size: 25px;
+    border-radius: 2em;
+    border: 5px solid #f8f9fa;
 }
 
 .daytime{
@@ -75,3 +89,4 @@ body{
 .rotate{
     animation-fill-mode: forwards;
     animation: rotate 1s linear 5;
+}

@@ -39,13 +39,13 @@
     </div>
 {% else %}
     {% if evo_flag == 1 %}
-    <div class="alert alert-success">{{ obon.name }} は {{ obon.material }} おぼんに進化した！</div>
+    <div class="alert alert-success">{{ message }}</div>
     {% endif %}
 
     <div class="name-container">
         <dvi class="obon-name"><span class="name">{{ obon.name }}</span></dvi>
         <div class="price-tag">
-            所持金：{{ obon.money }}円 <strong><font color="red">(- {{ money }})</font></strong>
+            所持金：{{ obon.money }}円 <strong><font color="red"> (- {{ money }})</font></strong>
         </div>
     </div>
 
