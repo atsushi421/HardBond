@@ -6,6 +6,11 @@ from ..models import Result
 
 class ResultsView(View):
     def get(self, request, *args, **kwargs):
+        # 10人に満たなければ、名無しを生成
+        while(len(Result.objects.all()) < 10):
+            sample = Result.objects.create()
+            sample.save()
+        
         top_ten = Result.objects.order_by('result').reverse()[0:10]
         
         context = {
