@@ -16,13 +16,14 @@ class BattleView(View):
         time =  math.floor((obon.size + obon.wise + obon.weight + obon.motivation) / 12)
 
         # 飛距離を計算
-        distance = time * 90 
+        distance = time * 89 
         result = Result.objects.create(name=obon.name, result=distance)
         result.save()
         
         data = {
             "imageUrl" : obon.image.url,
             "time" : time,
+            "distance" : distance,
         }
         
         return render(request, 'battle.html', {'data_json': json.dumps(data)})
